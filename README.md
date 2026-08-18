@@ -1,6 +1,6 @@
 # Mega menu preview
 
-Demo del megamenú con el **mapa real del sitio** y el patrón visual de [Lucid](https://lucid.co/es/soluciones). Iconos Lucide (MIT). Sin descripciones cortas.
+Demo del megamenú con el **mapa real del sitio** y el diseño visual de [Lucid](https://lucid.co/es/soluciones): logo, paleta `#282c33` / `#005ed0`, header de 60px, botones cuadrados, hero con foto y onda, y tarjetas con enlaces azules. Graphik no es embebible; se usa Plus Jakarta Sans como fallback. Iconos Lucide (MIT). Sin descripciones cortas.
 
 Abrir `index.html` en el navegador. En escritorio, pasar el cursor entre las secciones del nav. En tablet/móvil, usar el menú hamburguesa.
 
