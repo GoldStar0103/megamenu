@@ -1,24 +1,22 @@
 /* mm_ mega menu — scoped tokens so this block can drop into another template */
-/* Lucid visual tokens — Graphik stack with a close public fallback */
 .mm_nav {
-  --mm-font: Graphik, "Plus Jakarta Sans", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mm-text: #282c33;
-  --mm-text-muted: #3a414a;
-  --mm-text-soft: #6b7280;
-  --mm-accent: #005ed0;
-  --mm-accent-soft: #e8f2fc;
+  --mm-font: "Inter", system-ui, -apple-system, sans-serif;
+  --mm-text: #111318;
+  --mm-text-muted: #5c6370;
+  --mm-text-soft: #8b919c;
+  --mm-accent: #2563eb;
+  --mm-accent-soft: #eff4ff;
   --mm-surface: #ffffff;
-  --mm-page: #ffffff;
-  --mm-border: #e6e8eb;
-  --mm-icon-bg: transparent;
-  --mm-icon-color: #282c33;
-  --mm-panel-bg: #ffffff;
-  --mm-shadow: 0 8px 30px rgba(40, 44, 51, 0.16);
-  --mm-radius: 0px;
-  --mm-duration: 180ms;
-  --mm-ease: ease;
-  --mm-bar-h: 60px;
-  --mm-max: 72rem;
+  --mm-border: rgba(17, 19, 24, 0.08);
+  --mm-icon-bg: #f3f5f8;
+  --mm-icon-color: #3b4250;
+  --mm-panel-bg: rgba(255, 255, 255, 0.92);
+  --mm-shadow: 0 24px 60px rgba(15, 23, 42, 0.12), 0 4px 14px rgba(15, 23, 42, 0.06);
+  --mm-radius: 18px;
+  --mm-duration: 200ms;
+  --mm-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --mm-bar-h: 72px;
+  --mm-max: 1180px;
 
   position: sticky;
   top: 0;
@@ -42,17 +40,19 @@
   position: relative;
   z-index: 3;
   height: var(--mm-bar-h);
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--mm-border);
 }
 
 .mm_bar-inner {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 16px;
   height: 100%;
-  max-width: 90rem;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -60,25 +60,37 @@
 .mm_brand {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   justify-self: start;
   font-weight: 700;
-  font-size: 22px;
-  letter-spacing: -0.04em;
-  color: var(--mm-text);
+  font-size: 18px;
+  letter-spacing: -0.03em;
 }
 
-.mm_brand img {
-  width: 32px;
-  height: 32px;
-  display: block;
+.mm_brand-mark {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--mm-text);
+  color: #fff;
+}
+
+.mm_brand-mark svg {
+  width: 16px;
+  height: 16px;
 }
 
 .mm_menu {
   display: flex;
   align-items: center;
-  gap: 0;
-  justify-self: start;
+  gap: 2px;
+}
+
+.mm_group {
+  display: flex;
+  align-items: center;
 }
 
 .mm_link {
@@ -87,23 +99,22 @@
   background: transparent;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  height: 30px;
-  padding: 8px;
-  border-radius: 0;
+  gap: 5px;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 10px;
   font: inherit;
   font-size: 14px;
-  font-weight: 400;
-  color: var(--mm-text-muted);
+  font-weight: 500;
+  color: var(--mm-text);
   cursor: pointer;
-  transition: color var(--mm-duration) var(--mm-ease);
+  transition: background var(--mm-duration) var(--mm-ease), color var(--mm-duration) var(--mm-ease);
 }
 
 .mm_link:hover,
 .mm_link.is-open,
 .mm_link:focus-visible {
-  background: transparent;
-  color: var(--mm-text);
+  background: #f4f6f9;
 }
 
 .mm_link:focus-visible {
@@ -126,7 +137,7 @@
   display: flex;
   align-items: center;
   justify-self: end;
-  gap: 8px;
+  gap: 10px;
 }
 
 .mm_btn {
@@ -134,48 +145,35 @@
   align-items: center;
   justify-content: center;
   height: 40px;
-  padding: 12px;
-  border-radius: 0;
+  padding: 0 16px;
+  border-radius: 10px;
   font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 14px;
-  transition: background var(--mm-duration) var(--mm-ease), color var(--mm-duration) var(--mm-ease), border-color var(--mm-duration) var(--mm-ease);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: background var(--mm-duration) var(--mm-ease), color var(--mm-duration) var(--mm-ease), border-color var(--mm-duration) var(--mm-ease), transform var(--mm-duration) var(--mm-ease);
 }
 
 .mm_btn:hover {
-  transform: none;
+  transform: translateY(-1px);
 }
 
 .mm_btn-ghost {
-  border: 1px solid #282c33;
-  background: #ffffff;
-  color: #282c33;
+  border: 1px solid rgba(17, 19, 24, 0.16);
+  background: var(--mm-surface);
 }
 
 .mm_btn-ghost:hover {
-  background: #f4f5f6;
+  background: #f8fafc;
 }
 
 .mm_btn-solid {
-  border: 1px solid #282c33;
-  background: #282c33;
+  border: 1px solid var(--mm-text);
+  background: var(--mm-text);
   color: #fff;
 }
 
 .mm_btn-solid:hover {
-  background: #1c1f24;
-}
-
-.mm_login {
-  padding: 8px;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--mm-text-muted);
-}
-
-.mm_login:hover {
-  color: var(--mm-text);
+  background: #000;
 }
 
 .mm_burger {
@@ -184,7 +182,7 @@
   width: 40px;
   height: 40px;
   border: 0;
-  border-radius: 0;
+  border-radius: 10px;
   background: transparent;
   cursor: pointer;
 }
@@ -246,7 +244,7 @@
   pointer-events: auto;
 }
 
-.mm_panels {
+.mm_panel {
   position: absolute;
   left: 0;
   right: 0;
@@ -254,41 +252,42 @@
   z-index: 4;
   display: flex;
   justify-content: center;
-  padding: 0 16px;
-  pointer-events: none;
-}
-
-.mm_panel {
-  width: min(100%, var(--mm-max));
+  padding: 10px 16px 0;
   pointer-events: none;
   opacity: 0;
+  visibility: hidden;
   transform: translateY(-8px);
-  transition: opacity var(--mm-duration) var(--mm-ease), transform var(--mm-duration) var(--mm-ease);
-  position: absolute;
-  padding-top: 10px;
+  transition:
+    opacity var(--mm-duration) var(--mm-ease),
+    transform var(--mm-duration) var(--mm-ease),
+    visibility 0s var(--mm-duration);
 }
 
 .mm_panel.is-open {
   pointer-events: auto;
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
+  transition:
+    opacity var(--mm-duration) var(--mm-ease),
+    transform var(--mm-duration) var(--mm-ease),
+    visibility 0s;
 }
 
 .mm_panel-card {
+  width: min(100%, var(--mm-max));
   background: var(--mm-panel-bg);
-  border: 0;
-  border-radius: 0;
+  backdrop-filter: blur(22px) saturate(1.2);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: var(--mm-radius);
   box-shadow: var(--mm-shadow);
-  padding: 24px 32px 16px;
+  padding: 28px 32px 24px;
 }
 
 .mm_cols {
   display: grid;
-  gap: 8px 28px;
-}
-
-.mm_cols-2 {
-  grid-template-columns: 1.05fr 1fr;
+  gap: 12px 28px;
 }
 
 .mm_cols-3 {
@@ -303,9 +302,8 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
-.mm_cols-7 {
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px 20px;
+.mm_cols-auto {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
 }
 
 .mm_col-title {
@@ -317,10 +315,6 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--mm-text-soft);
-}
-
-.mm_panel-card > .mm_col-title {
-  margin-bottom: 16px;
 }
 
 .mm_list {
@@ -335,28 +329,33 @@
 .mm_item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 36px;
-  padding: 8px 0;
-  border-radius: 0;
-  transition: color var(--mm-duration) var(--mm-ease);
+  gap: 12px;
+  min-height: 48px;
+  padding: 7px 8px;
+  border-radius: 12px;
+  transition: background var(--mm-duration) var(--mm-ease);
 }
 
 .mm_item:hover,
 .mm_item:focus-visible {
-  background: transparent;
-  color: var(--mm-accent);
+  background: #f4f6f9;
+}
+
+.mm_item:focus-visible {
+  outline: 2px solid var(--mm-accent);
+  outline-offset: 1px;
 }
 
 .mm_icon {
-  flex: 0 0 20px;
-  width: 20px;
-  height: 20px;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
   display: grid;
   place-items: center;
-  border-radius: 0;
-  background: transparent;
-  color: currentColor;
+  border-radius: 10px;
+  background: var(--mm-icon-bg);
+  color: var(--mm-icon-color);
+  transition: background var(--mm-duration) var(--mm-ease), color var(--mm-duration) var(--mm-ease), transform var(--mm-duration) var(--mm-ease);
 }
 
 .mm_icon svg {
@@ -365,112 +364,165 @@
 }
 
 .mm_item:hover .mm_icon,
-.mm_item:focus-visible .mm_icon {
-  background: transparent;
+.mm_item:focus-visible .mm_icon,
+.mm_industry-head:hover .mm_icon,
+.mm_feature-card:hover .mm_icon {
+  background: var(--mm-accent-soft);
   color: var(--mm-accent);
-  transform: none;
+  transform: translateY(-1px);
 }
 
 .mm_item-label {
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 1.4;
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
 }
 
 .mm_sub {
-  display: inline-block;
-  margin: -2px 0 8px 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: -2px 0 8px 58px;
+  padding: 4px 8px;
+  border-radius: 8px;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
+  color: var(--mm-text-muted);
+  transition: color var(--mm-duration) var(--mm-ease), background var(--mm-duration) var(--mm-ease);
+}
+
+.mm_sub svg {
+  width: 14px;
+  height: 14px;
+}
+
+.mm_sub:hover,
+.mm_sub:focus-visible {
   color: var(--mm-accent);
+  background: var(--mm-accent-soft);
 }
 
 .mm_child {
-  display: block;
-  padding: 6px 0;
-  border-radius: 0;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--mm-accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--mm-text-muted);
+  transition: background var(--mm-duration) var(--mm-ease), color var(--mm-duration) var(--mm-ease);
+}
+
+.mm_child svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
 }
 
 .mm_child:hover,
 .mm_child:focus-visible {
-  background: transparent;
-  color: #004ba8;
+  background: #f4f6f9;
+  color: var(--mm-text);
 }
 
 .mm_industry-head {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-  padding: 8px 0;
-  border-radius: 0;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0;
+  gap: 10px;
+  margin-bottom: 6px;
+  padding: 6px 8px;
+  border-radius: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  transition: background var(--mm-duration) var(--mm-ease);
 }
 
 .mm_industry-head:hover {
-  background: transparent;
-  color: var(--mm-accent);
+  background: #f4f6f9;
 }
 
 .mm_industry-head .mm_icon {
-  flex-basis: 20px;
-  width: 20px;
-  height: 20px;
+  flex-basis: 34px;
+  width: 34px;
+  height: 34px;
 }
 
-.mm_industry-head:hover .mm_icon {
-  background: transparent;
-  color: var(--mm-accent);
+.mm_tone-health .mm_icon {
+  background: #fff1f2;
+  color: #e11d48;
 }
 
-.mm_feature {
+.mm_tone-legal .mm_icon {
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.mm_tone-enterprise .mm_icon {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.mm_tone-gov .mm_icon {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.mm_tone-edu .mm_icon {
+  background: #f0f9ff;
+  color: #0284c7;
+}
+
+.mm_feature-card {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 16px;
-  margin-top: 8px;
-  padding-top: 8px;
-  border-top: 1px solid var(--mm-border);
+  min-height: 168px;
+  padding: 20px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #f8fafc, #f1f5f9);
+  border: 1px solid var(--mm-border);
+  transition: background var(--mm-duration) var(--mm-ease), transform var(--mm-duration) var(--mm-ease);
 }
 
-.mm_foot {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid var(--mm-border);
+.mm_feature-card:hover {
+  background: #fff;
+  transform: translateY(-2px);
 }
 
-.mm_more {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
+.mm_feature-card .mm_icon {
+  width: 44px;
+  height: 44px;
+  flex-basis: 44px;
+  border-radius: 12px;
+}
+
+.mm_feature-card .mm_item-label {
+  font-size: 16px;
   font-weight: 600;
-  color: var(--mm-accent);
-}
-
-.mm_more svg {
-  width: 16px;
-  height: 16px;
-  transition: transform var(--mm-duration) var(--mm-ease);
-}
-
-.mm_more:hover svg {
-  transform: translateX(3px);
+  letter-spacing: -0.02em;
 }
 
 .mm_mobile-cta {
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (prefers-reduced-motion: reduce) {
+  .mm_nav *,
+  .mm_nav *::before,
+  .mm_nav *::after {
+    transition: none !important;
+  }
+
+  .mm_panel {
+    transform: none;
+  }
+}
+
+@media (max-width: 1100px) {
   .mm_bar-inner {
     display: flex;
     justify-content: space-between;
@@ -499,18 +551,17 @@
     border-bottom: 1px solid var(--mm-border);
   }
 
+  .mm_group {
+    display: block;
+  }
+
   .mm_link {
     width: 100%;
     justify-content: space-between;
     height: 52px;
     padding: 0 12px;
     font-size: 16px;
-    border-radius: 0;
-  }
-
-  .mm_panels {
-    position: static;
-    padding: 0;
+    border-radius: 12px;
   }
 
   .mm_panel {
@@ -518,16 +569,21 @@
     width: 100%;
     max-height: 0;
     overflow: hidden;
+    padding: 0;
     opacity: 1;
+    visibility: visible;
     transform: none;
+    pointer-events: none;
     transition: max-height 280ms var(--mm-ease);
   }
 
   .mm_panel.is-open {
     max-height: 2800px;
+    pointer-events: auto;
   }
 
   .mm_panel-card {
+    width: 100%;
     padding: 4px 8px 12px;
     background: transparent;
     border: 0;
@@ -536,11 +592,10 @@
     border-radius: 0;
   }
 
-  .mm_cols-2,
   .mm_cols-3,
   .mm_cols-4,
   .mm_cols-5,
-  .mm_cols-7 {
+  .mm_cols-auto {
     grid-template-columns: 1fr;
     gap: 8px;
   }
@@ -549,18 +604,12 @@
     margin-left: 54px;
   }
 
-  .mm_feature {
-    flex-direction: column;
-    align-items: flex-start;
+  .mm_feature-card {
+    min-height: 0;
   }
 
   .mm_col-title {
     margin: 10px 0 6px;
-  }
-
-  .mm_foot {
-    justify-content: flex-start;
-    border-top: 0;
   }
 
   .mm_burger {
@@ -580,17 +629,10 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-  .mm_cols-5,
-  .mm_cols-4,
-  .mm_cols-7 {
+@media (min-width: 720px) and (max-width: 1100px) {
+  .mm_nav.is-mobile-open .mm_cols-5,
+  .mm_nav.is-mobile-open .mm_cols-4,
+  .mm_nav.is-mobile-open .mm_cols-3 {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1100px) and (max-width: 1240px) {
-  .mm_link {
-    padding: 0 8px;
-    font-size: 13.5px;
   }
 }

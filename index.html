@@ -6,7 +6,7 @@
   <title>Mega menu preview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/mm-nav.css">
   <link rel="stylesheet" href="css/demo.css">
 </head>
@@ -45,52 +45,236 @@
       <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
       <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
       <symbol id="i-dollar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 18V6"/></symbol>
-      <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
-      <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
       <symbol id="i-layout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></symbol>
+      <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></symbol>
       <symbol id="i-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9Z"/><path d="M12 12 4 7.5"/><path d="M12 12v9"/><path d="m12 12 8-4.5"/></symbol>
       <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
     </defs>
   </svg>
 
   <nav class="mm_nav" data-mm-nav aria-label="Primary">
     <div class="mm_bar">
       <div class="mm_bar-inner">
-        <a class="mm_brand" href="#top">
-          <img src="assets/lucid-logo.svg" alt="">
-          Lucid
+        <a class="mm_brand" href="#top" data-mm-dismiss>
+          <span class="mm_brand-mark"><svg viewBox="0 0 24 24"><use href="#i-mark"></use></svg></span>
+          Brand
         </a>
 
         <div class="mm_menu">
-          <button class="mm_link" type="button" data-mm-trigger="solutions" aria-expanded="false" aria-controls="mm-panel-solutions">
-            <span>Solutions</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
-          </button>
-          <button class="mm_link" type="button" data-mm-trigger="industries" aria-expanded="false" aria-controls="mm-panel-industries">
-            <span>Industries</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
-          </button>
-          <button class="mm_link" type="button" data-mm-trigger="platform" aria-expanded="false" aria-controls="mm-panel-platform">
-            <span>Platform</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
-          </button>
-          <button class="mm_link" type="button" data-mm-trigger="people" aria-expanded="false" aria-controls="mm-panel-people">
-            <span>People</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
-          </button>
-          <button class="mm_link" type="button" data-mm-trigger="insights" aria-expanded="false" aria-controls="mm-panel-insights">
-            <span>Insights</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
-          </button>
-          <button class="mm_link" type="button" data-mm-trigger="about" aria-expanded="false" aria-controls="mm-panel-about">
-            <span>About</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
-          </button>
+          <div class="mm_group">
+            <button class="mm_link" type="button" data-mm-trigger="solutions" aria-expanded="false" aria-haspopup="true" aria-controls="mm-panel-solutions">
+              <span>Solutions</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
+            </button>
+            <div class="mm_panel" id="mm-panel-solutions" data-mm-panel="solutions">
+              <div class="mm_panel-card">
+                <div class="mm_cols mm_cols-3">
+                  <section class="mm_col">
+                    <h3 class="mm_col-title">Real-Time Interpretation</h3>
+                    <ul class="mm_list">
+                      <li>
+                        <a class="mm_item" href="#opi"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-phone"></use></svg></span><span class="mm_item-label">OPI (Phone)</span></a>
+                        <a class="mm_sub" href="#opi-use-cases"><svg viewBox="0 0 24 24"><use href="#i-layout"></use></svg>Use Cases</a>
+                      </li>
+                      <li>
+                        <a class="mm_item" href="#vri"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-video"></use></svg></span><span class="mm_item-label">VRI (Video)</span></a>
+                        <a class="mm_sub" href="#vri-use-cases"><svg viewBox="0 0 24 24"><use href="#i-layout"></use></svg>Use Cases</a>
+                      </li>
+                      <li>
+                        <a class="mm_item" href="#on-site"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-pin"></use></svg></span><span class="mm_item-label">On-Site</span></a>
+                        <a class="mm_sub" href="#on-site-use-cases"><svg viewBox="0 0 24 24"><use href="#i-layout"></use></svg>Use Cases</a>
+                      </li>
+                    </ul>
+                  </section>
+                  <section class="mm_col">
+                    <h3 class="mm_col-title">Schedule interpretation</h3>
+                    <a class="mm_feature-card" href="#schedule-interpretation">
+                      <span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-calendar"></use></svg></span>
+                      <span class="mm_item-label">Schedule interpretation</span>
+                    </a>
+                  </section>
+                  <section class="mm_col">
+                    <h3 class="mm_col-title">Infrastructure (LaaS)</h3>
+                    <ul class="mm_list">
+                      <li><a class="mm_item" href="#what-is-laas"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-layers"></use></svg></span><span class="mm_item-label">What is Language as a Service</span></a></li>
+                      <li><a class="mm_item" href="#service-vs-infrastructure"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-compare"></use></svg></span><span class="mm_item-label">Service vs Infrastructure</span></a></li>
+                      <li><a class="mm_item" href="#why-it-matters"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-sparkles"></use></svg></span><span class="mm_item-label">Why it matters</span></a></li>
+                      <li><a class="mm_item" href="#operational-impact"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-activity"></use></svg></span><span class="mm_item-label">Operational impact</span></a></li>
+                    </ul>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mm_group">
+            <button class="mm_link" type="button" data-mm-trigger="industries" aria-expanded="false" aria-haspopup="true" aria-controls="mm-panel-industries">
+              <span>Industries</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
+            </button>
+            <div class="mm_panel" id="mm-panel-industries" data-mm-panel="industries">
+              <div class="mm_panel-card">
+                <div class="mm_cols mm_cols-5">
+                  <section class="mm_col">
+                    <a class="mm_industry-head mm_tone-health" href="#healthcare"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-heart"></use></svg></span>Healthcare</a>
+                    <a class="mm_child" href="#healthcare-risks"><svg viewBox="0 0 24 24"><use href="#i-alert"></use></svg>Risks</a>
+                    <a class="mm_child" href="#healthcare-use-cases"><svg viewBox="0 0 24 24"><use href="#i-layout"></use></svg>Use Cases</a>
+                    <a class="mm_child" href="#healthcare-outcomes"><svg viewBox="0 0 24 24"><use href="#i-trending"></use></svg>Outcomes</a>
+                  </section>
+                  <section class="mm_col">
+                    <a class="mm_industry-head mm_tone-legal" href="#legal"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-scale"></use></svg></span>Legal</a>
+                    <a class="mm_child" href="#legal-risks"><svg viewBox="0 0 24 24"><use href="#i-alert"></use></svg>Risks</a>
+                    <a class="mm_child" href="#legal-use-cases"><svg viewBox="0 0 24 24"><use href="#i-layout"></use></svg>Use Cases</a>
+                    <a class="mm_child" href="#legal-outcomes"><svg viewBox="0 0 24 24"><use href="#i-trending"></use></svg>Outcomes</a>
+                  </section>
+                  <section class="mm_col">
+                    <a class="mm_industry-head mm_tone-enterprise" href="#enterprise"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-briefcase"></use></svg></span>Enterprise</a>
+                    <a class="mm_child" href="#enterprise-risks"><svg viewBox="0 0 24 24"><use href="#i-alert"></use></svg>Risks</a>
+                    <a class="mm_child" href="#enterprise-use-cases"><svg viewBox="0 0 24 24"><use href="#i-layout"></use></svg>Use Cases</a>
+                    <a class="mm_child" href="#enterprise-outcomes"><svg viewBox="0 0 24 24"><use href="#i-trending"></use></svg>Outcomes</a>
+                  </section>
+                  <section class="mm_col">
+                    <a class="mm_industry-head mm_tone-gov" href="#government"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-landmark"></use></svg></span>Government</a>
+                    <a class="mm_child" href="#government-risks"><svg viewBox="0 0 24 24"><use href="#i-alert"></use></svg>Risks</a>
+                    <a class="mm_child" href="#government-use-cases"><svg viewBox="0 0 24 24"><use href="#i-layout"></use></svg>Use Cases</a>
+                    <a class="mm_child" href="#government-outcomes"><svg viewBox="0 0 24 24"><use href="#i-trending"></use></svg>Outcomes</a>
+                  </section>
+                  <section class="mm_col">
+                    <a class="mm_industry-head mm_tone-edu" href="#education"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-grad"></use></svg></span>Education</a>
+                    <a class="mm_child" href="#education-risks"><svg viewBox="0 0 24 24"><use href="#i-alert"></use></svg>Risks</a>
+                    <a class="mm_child" href="#education-use-cases"><svg viewBox="0 0 24 24"><use href="#i-layout"></use></svg>Use Cases</a>
+                    <a class="mm_child" href="#education-outcomes"><svg viewBox="0 0 24 24"><use href="#i-trending"></use></svg>Outcomes</a>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mm_group">
+            <button class="mm_link" type="button" data-mm-trigger="platform" aria-expanded="false" aria-haspopup="true" aria-controls="mm-panel-platform">
+              <span>Platform</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
+            </button>
+            <div class="mm_panel" id="mm-panel-platform" data-mm-panel="platform">
+              <div class="mm_panel-card">
+                <h3 class="mm_col-title">How it works (Architecture)</h3>
+                <div class="mm_cols mm_cols-4">
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#connect"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-plug"></use></svg></span><span class="mm_item-label">Connect</span></a></li>
+                    <li><a class="mm_item" href="#match"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-merge"></use></svg></span><span class="mm_item-label">Match</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#interpret"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-languages"></use></svg></span><span class="mm_item-label">Interpret</span></a></li>
+                    <li><a class="mm_item" href="#continuous-optimization"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-refresh"></use></svg></span><span class="mm_item-label">Continuous Optimization</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#integrations"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-puzzle"></use></svg></span><span class="mm_item-label">Integrations</span></a></li>
+                    <li><a class="mm_item" href="#availability-sla"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-clock"></use></svg></span><span class="mm_item-label">Availability &amp; SLA</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#security-compliance"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-shield"></use></svg></span><span class="mm_item-label">Security &amp; Compliance</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mm_group">
+            <button class="mm_link" type="button" data-mm-trigger="people" aria-expanded="false" aria-haspopup="true" aria-controls="mm-panel-people">
+              <span>People</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
+            </button>
+            <div class="mm_panel" id="mm-panel-people" data-mm-panel="people">
+              <div class="mm_panel-card">
+                <div class="mm_cols mm_cols-auto">
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#interpreter-selection"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-user-check"></use></svg></span><span class="mm_item-label">Interpreter Selection</span></a></li>
+                    <li><a class="mm_item" href="#evaluation-system"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-clipboard"></use></svg></span><span class="mm_item-label">Evaluation System</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#training-quality"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-badge"></use></svg></span><span class="mm_item-label">Training &amp; Quality Control</span></a></li>
+                    <li><a class="mm_item" href="#human-technology"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-cpu"></use></svg></span><span class="mm_item-label">Human + Technology Model</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#career"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-briefcase"></use></svg></span><span class="mm_item-label">Career</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mm_group">
+            <button class="mm_link" type="button" data-mm-trigger="insights" aria-expanded="false" aria-haspopup="true" aria-controls="mm-panel-insights">
+              <span>Insights</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
+            </button>
+            <div class="mm_panel" id="mm-panel-insights" data-mm-panel="insights">
+              <div class="mm_panel-card">
+                <h3 class="mm_col-title">Insights</h3>
+                <div class="mm_cols mm_cols-3">
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#thought-leadership"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-lightbulb"></use></svg></span><span class="mm_item-label">Thought Leadership</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#industry-content"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-newspaper"></use></svg></span><span class="mm_item-label">Industry Content</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#communication-failures"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-alert"></use></svg></span><span class="mm_item-label">Communication Failures &amp; Impact</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mm_group">
+            <button class="mm_link" type="button" data-mm-trigger="about" aria-expanded="false" aria-haspopup="true" aria-controls="mm-panel-about">
+              <span>About</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
+            </button>
+            <div class="mm_panel" id="mm-panel-about" data-mm-panel="about">
+              <div class="mm_panel-card">
+                <div class="mm_cols mm_cols-4">
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#mission"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-compass"></use></svg></span><span class="mm_item-label">Mission</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#story"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-book"></use></svg></span><span class="mm_item-label">Story</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#values"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-heart"></use></svg></span><span class="mm_item-label">Values</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#credibility"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-badge"></use></svg></span><span class="mm_item-label">Credibility</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mm_group">
+            <button class="mm_link" type="button" data-mm-trigger="contact" aria-expanded="false" aria-haspopup="true" aria-controls="mm-panel-contact">
+              <span>Contact</span><svg class="mm_chevron" viewBox="0 0 24 24"><use href="#i-chevron"></use></svg>
+            </button>
+            <div class="mm_panel" id="mm-panel-contact" data-mm-panel="contact">
+              <div class="mm_panel-card">
+                <div class="mm_cols mm_cols-4">
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#find-solution"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-search"></use></svg></span><span class="mm_item-label">Find the right solution</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#pricing"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-dollar"></use></svg></span><span class="mm_item-label">Get Pricing</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#form"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-file"></use></svg></span><span class="mm_item-label">Form</span></a></li>
+                  </ul>
+                  <ul class="mm_list">
+                    <li><a class="mm_item" href="#career"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-briefcase"></use></svg></span><span class="mm_item-label">Career</span></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="mm_mobile-cta">
-            <a class="mm_login" href="#login">Iniciar sesión</a>
-            <a class="mm_btn mm_btn-ghost" href="#contact">Comunícate con Ventas</a>
             <a class="mm_btn mm_btn-solid" href="#pricing">Get Pricing</a>
           </div>
         </div>
 
-        <div class="mm_cta">
-          <a class="mm_login" href="#login">Iniciar sesión</a>
-          <a class="mm_btn mm_btn-ghost" href="#contact">Comunícate con Ventas</a>
+        <div class="mm_cta" data-mm-dismiss>
           <a class="mm_btn mm_btn-solid" href="#pricing">Get Pricing</a>
         </div>
 
@@ -99,205 +283,27 @@
     </div>
 
     <div class="mm_scrim" data-mm-scrim></div>
-
-    <div class="mm_panels">
-      <div class="mm_panel" id="mm-panel-solutions" data-mm-panel="solutions">
-        <div class="mm_panel-card">
-          <div class="mm_cols mm_cols-2">
-            <section class="mm_col">
-              <h3 class="mm_col-title">Real-Time Interpretation</h3>
-              <ul class="mm_list">
-                <li>
-                  <a class="mm_item" href="#opi"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-phone"></use></svg></span><span class="mm_item-label">OPI (Phone)</span></a>
-                  <a class="mm_sub" href="#opi-use-cases">Use Cases</a>
-                </li>
-                <li>
-                  <a class="mm_item" href="#vri"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-video"></use></svg></span><span class="mm_item-label">VRI (Video)</span></a>
-                  <a class="mm_sub" href="#vri-use-cases">Use Cases</a>
-                </li>
-                <li>
-                  <a class="mm_item" href="#on-site"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-pin"></use></svg></span><span class="mm_item-label">On-Site</span></a>
-                  <a class="mm_sub" href="#on-site-use-cases">Use Cases</a>
-                </li>
-              </ul>
-            </section>
-            <section class="mm_col">
-              <h3 class="mm_col-title">Infrastructure (LaaS)</h3>
-              <ul class="mm_list">
-                <li><a class="mm_item" href="#what-is-laas"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-layers"></use></svg></span><span class="mm_item-label">What is Language as a Service</span></a></li>
-                <li><a class="mm_item" href="#service-vs-infrastructure"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-compare"></use></svg></span><span class="mm_item-label">Service vs Infrastructure</span></a></li>
-                <li><a class="mm_item" href="#why-it-matters"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-sparkles"></use></svg></span><span class="mm_item-label">Why it matters</span></a></li>
-                <li><a class="mm_item" href="#operational-impact"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-activity"></use></svg></span><span class="mm_item-label">Operational impact</span></a></li>
-              </ul>
-            </section>
-          </div>
-          <div class="mm_feature">
-            <a class="mm_item" href="#schedule-interpretation"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-calendar"></use></svg></span><span class="mm_item-label">Schedule interpretation</span></a>
-            <a class="mm_more" href="#solutions">Ver más <svg viewBox="0 0 24 24"><use href="#i-arrow"></use></svg></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="mm_panel" id="mm-panel-industries" data-mm-panel="industries">
-        <div class="mm_panel-card">
-          <h3 class="mm_col-title">Industries</h3>
-          <div class="mm_cols mm_cols-5">
-            <section class="mm_col">
-              <a class="mm_industry-head" href="#healthcare"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-heart"></use></svg></span>Healthcare</a>
-              <a class="mm_child" href="#healthcare-risks">Risks</a>
-              <a class="mm_child" href="#healthcare-use-cases">Use Cases</a>
-              <a class="mm_child" href="#healthcare-outcomes">Outcomes</a>
-            </section>
-            <section class="mm_col">
-              <a class="mm_industry-head" href="#legal"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-scale"></use></svg></span>Legal</a>
-              <a class="mm_child" href="#legal-risks">Risks</a>
-              <a class="mm_child" href="#legal-use-cases">Use Cases</a>
-              <a class="mm_child" href="#legal-outcomes">Outcomes</a>
-            </section>
-            <section class="mm_col">
-              <a class="mm_industry-head" href="#enterprise"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-briefcase"></use></svg></span>Enterprise</a>
-              <a class="mm_child" href="#enterprise-risks">Risks</a>
-              <a class="mm_child" href="#enterprise-use-cases">Use Cases</a>
-              <a class="mm_child" href="#enterprise-outcomes">Outcomes</a>
-            </section>
-            <section class="mm_col">
-              <a class="mm_industry-head" href="#government"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-landmark"></use></svg></span>Government</a>
-              <a class="mm_child" href="#government-risks">Risks</a>
-              <a class="mm_child" href="#government-use-cases">Use Cases</a>
-              <a class="mm_child" href="#government-outcomes">Outcomes</a>
-            </section>
-            <section class="mm_col">
-              <a class="mm_industry-head" href="#education"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-grad"></use></svg></span>Education</a>
-              <a class="mm_child" href="#education-risks">Risks</a>
-              <a class="mm_child" href="#education-use-cases">Use Cases</a>
-              <a class="mm_child" href="#education-outcomes">Outcomes</a>
-            </section>
-          </div>
-        </div>
-      </div>
-
-      <div class="mm_panel" id="mm-panel-platform" data-mm-panel="platform">
-        <div class="mm_panel-card">
-          <h3 class="mm_col-title">How it works (Architecture)</h3>
-          <div class="mm_cols mm_cols-4">
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#connect"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-plug"></use></svg></span><span class="mm_item-label">Connect</span></a></li>
-              <li><a class="mm_item" href="#match"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-merge"></use></svg></span><span class="mm_item-label">Match</span></a></li>
-            </ul>
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#interpret"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-languages"></use></svg></span><span class="mm_item-label">Interpret</span></a></li>
-              <li><a class="mm_item" href="#continuous-optimization"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-refresh"></use></svg></span><span class="mm_item-label">Continuous Optimization</span></a></li>
-            </ul>
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#integrations"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-puzzle"></use></svg></span><span class="mm_item-label">Integrations</span></a></li>
-              <li><a class="mm_item" href="#availability-sla"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-clock"></use></svg></span><span class="mm_item-label">Availability &amp; SLA</span></a></li>
-            </ul>
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#security-compliance"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-shield"></use></svg></span><span class="mm_item-label">Security &amp; Compliance</span></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="mm_panel" id="mm-panel-people" data-mm-panel="people">
-        <div class="mm_panel-card">
-          <div class="mm_cols mm_cols-3">
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#interpreter-selection"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-user-check"></use></svg></span><span class="mm_item-label">Interpreter Selection</span></a></li>
-              <li><a class="mm_item" href="#evaluation-system"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-clipboard"></use></svg></span><span class="mm_item-label">Evaluation System</span></a></li>
-            </ul>
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#training-quality"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-badge"></use></svg></span><span class="mm_item-label">Training &amp; Quality Control</span></a></li>
-              <li><a class="mm_item" href="#human-technology"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-cpu"></use></svg></span><span class="mm_item-label">Human + Technology Model</span></a></li>
-            </ul>
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#career"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-briefcase"></use></svg></span><span class="mm_item-label">Career</span></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="mm_panel" id="mm-panel-insights" data-mm-panel="insights">
-        <div class="mm_panel-card">
-          <h3 class="mm_col-title">Insights</h3>
-          <div class="mm_cols mm_cols-3">
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#thought-leadership"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-lightbulb"></use></svg></span><span class="mm_item-label">Thought Leadership</span></a></li>
-            </ul>
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#industry-content"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-newspaper"></use></svg></span><span class="mm_item-label">Industry Content</span></a></li>
-            </ul>
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#communication-failures"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-alert"></use></svg></span><span class="mm_item-label">Communication Failures &amp; Impact</span></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="mm_panel" id="mm-panel-about" data-mm-panel="about">
-        <div class="mm_panel-card">
-          <div class="mm_cols mm_cols-4">
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#mission"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-compass"></use></svg></span><span class="mm_item-label">Mission</span></a></li>
-            </ul>
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#story"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-book"></use></svg></span><span class="mm_item-label">Story</span></a></li>
-            </ul>
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#values"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-heart"></use></svg></span><span class="mm_item-label">Values</span></a></li>
-            </ul>
-            <ul class="mm_list">
-              <li><a class="mm_item" href="#credibility"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-badge"></use></svg></span><span class="mm_item-label">Credibility</span></a></li>
-            </ul>
-          </div>
-          <div class="mm_feature">
-            <a class="mm_item" href="#contact"><span class="mm_icon"><svg viewBox="0 0 24 24"><use href="#i-search"></use></svg></span><span class="mm_item-label">Find the right solution</span></a>
-            <a class="mm_more" href="#contact">Contact <svg viewBox="0 0 24 24"><use href="#i-arrow"></use></svg></a>
-          </div>
-        </div>
-      </div>
-    </div>
   </nav>
 
   <main id="top">
     <section class="demo_hero">
-      <div class="demo_hero-inner">
-        <h1>Soluciones de colaboración visual para todos</h1>
-        <p>Descubre cómo Lucid ayuda a tu equipo a trabajar de forma más rápida e inteligente, sea cual sea el proyecto.</p>
-      </div>
-      <svg class="demo_hero-curve" viewBox="0 0 1440 56" preserveAspectRatio="none" aria-hidden="true">
-        <path fill="#fff" d="M0 56V18C240 48 480 56 720 56s480-8 720-38v38H0Z"/>
-      </svg>
+      <div class="demo_kicker">Preview · site map mega menu</div>
+      <h1>Hover <span>Solutions</span>, then move across the nav</h1>
+      <p>Megamenú con el mapa real: iconos Lucide, panel a ancho completo y sin descripciones cortas. En móvil se abre como acordeón.</p>
     </section>
-    <section class="demo_cards">
+    <div class="demo_canvas"><div class="demo_stage" aria-hidden="true"></div></div>
+    <section class="demo_note">
       <article class="demo_card">
-        <h2>Por industria</h2>
-        <ul>
-          <li><a href="#healthcare">Healthcare</a></li>
-          <li><a href="#legal">Legal</a></li>
-          <li><a href="#enterprise">Enterprise</a></li>
-          <li><a href="#government">Government</a></li>
-          <li><a href="#education">Education</a></li>
-        </ul>
+        <h2>Solutions</h2>
+        <p>Tres columnas: Real-Time Interpretation, Schedule interpretation e Infrastructure / LaaS.</p>
       </article>
       <article class="demo_card">
-        <h2>Por equipo</h2>
-        <ul>
-          <li><a href="#interpreter-selection">Interpreter Selection</a></li>
-          <li><a href="#evaluation-system">Evaluation System</a></li>
-          <li><a href="#training-quality">Training &amp; Quality Control</a></li>
-          <li><a href="#human-technology">Human + Technology Model</a></li>
-        </ul>
+        <h2>Industries</h2>
+        <p>Healthcare, Legal, Enterprise, Government y Education, cada una con Risks, Use Cases y Outcomes.</p>
       </article>
       <article class="demo_card">
-        <h2>Por iniciativa</h2>
-        <ul>
-          <li><a href="#opi">OPI (Phone)</a></li>
-          <li><a href="#vri">VRI (Video)</a></li>
-          <li><a href="#on-site">On-Site</a></li>
-          <li><a href="#what-is-laas">Language as a Service</a></li>
-          <li><a href="#schedule-interpretation">Schedule interpretation</a></li>
-        </ul>
+        <h2>Resto del mapa</h2>
+        <p>Platform, People, Insights, About y Contact. Get Pricing queda como CTA fijo.</p>
       </article>
     </section>
   </main>
