@@ -2,98 +2,120 @@
   const nav = document.querySelector("[data-mm-nav]");
   if (!nav) return;
 
-  const links = [...nav.querySelectorAll("[data-mm-trigger]")];
-  const panels = [...nav.querySelectorAll("[data-mm-panel]")];
+  const overlay = nav.querySelector("[data-mm-overlay]");
+  const items = [...nav.querySelectorAll("[data-mm-panel]")];
+  const panels = [...nav.querySelectorAll("[data-panel]")];
   const burger = nav.querySelector("[data-mm-burger]");
-  const scrim = nav.querySelector("[data-mm-scrim]");
-  const mq = window.matchMedia("(max-width: 1024px)");
+  const backdrop = nav.querySelector("[data-mm-backdrop]");
+  const closeBtns = [...nav.querySelectorAll("[data-mm-close]")];
+  const accordionBtns = [...nav.querySelectorAll("[data-mm-tab]")];
+  const mq = window.matchMedia("(max-width: 991px)");
 
-  let closeTimer = 0;
-  let openId = null;
+  const OPEN_DELAY = 70;
+  const CLOSE_DELAY = 180;
+  let openTimer = null;
+  let closeTimer = null;
+  let current = null;
 
-  const isMobile = () => mq.matches;
+  function isMobile() {
+    return mq.matches;
+  }
 
-  const setOpen = (id) => {
-    openId = id;
-    nav.classList.toggle("is-open", Boolean(id) && !isMobile());
-    links.forEach((link) => {
-      const on = link.dataset.mmTrigger === id;
-      link.classList.toggle("is-open", on);
-      link.setAttribute("aria-expanded", on ? "true" : "false");
+  function showPanel(name) {
+    current = name;
+    nav.classList.add("is-open");
+    items.forEach((item) => {
+      item.classList.toggle("is-active", item.dataset.mmPanel === name);
     });
     panels.forEach((panel) => {
-      panel.classList.toggle("is-open", panel.dataset.mmPanel === id);
+      panel.classList.toggle("is-visible", panel.dataset.panel === name);
     });
-  };
-
-  const scheduleClose = () => {
-    window.clearTimeout(closeTimer);
-    closeTimer = window.setTimeout(() => setOpen(null), 140);
-  };
-
-  const cancelClose = () => window.clearTimeout(closeTimer);
-
-  links.forEach((link) => {
-    const id = link.dataset.mmTrigger;
-
-    link.addEventListener("mouseenter", () => {
-      if (isMobile()) return;
-      cancelClose();
-      setOpen(id);
+    accordionBtns.forEach((btn) => {
+      btn.classList.toggle("is-active", btn.dataset.mmTab === name);
+      btn.setAttribute("aria-expanded", String(btn.dataset.mmTab === name));
     });
-
-    link.addEventListener("focus", () => {
-      if (isMobile()) return;
-      cancelClose();
-      setOpen(id);
+    items.forEach((item) => {
+      const btn = item.querySelector(".mm_trigger");
+      if (btn) btn.setAttribute("aria-expanded", String(item.dataset.mmPanel === name));
     });
+  }
 
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      cancelClose();
-      if (isMobile()) {
-        setOpen(openId === id ? null : id);
-        return;
-      }
-      setOpen(id);
-    });
-  });
+  function close() {
+    current = null;
+    nav.classList.remove("is-open");
+    if (!nav.classList.contains("is-mobile-open")) {
+      items.forEach((item) => item.classList.remove("is-active"));
+      panels.forEach((panel) => panel.classList.remove("is-visible"));
+      items.forEach((item) => {
+        const btn = item.querySelector(".mm_trigger");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+      });
+    }
+  }
 
-  panels.forEach((panel) => {
-    panel.addEventListener("mouseenter", () => {
-      if (!isMobile()) cancelClose();
-    });
-    panel.addEventListener("mouseleave", () => {
-      if (!isMobile()) scheduleClose();
-    });
-  });
+  function openMobile(name) {
+    nav.classList.add("is-mobile-open");
+    document.body.style.overflow = "hidden";
+    showPanel(name || "solutions");
+  }
 
-  nav.querySelector(".mm_bar")?.addEventListener("mouseleave", () => {
-    if (!isMobile()) scheduleClose();
-  });
-
-  burger?.addEventListener("click", () => {
-    const next = !nav.classList.contains("is-mobile-open");
-    nav.classList.toggle("is-mobile-open", next);
-    burger.setAttribute("aria-expanded", next ? "true" : "false");
-    if (!next) setOpen(null);
-  });
-
-  scrim?.addEventListener("click", () => {
+  function closeMobile() {
     nav.classList.remove("is-mobile-open");
-    burger?.setAttribute("aria-expanded", "false");
-    setOpen(null);
+    document.body.style.overflow = "";
+    close();
+  }
+
+  items.forEach((item) => {
+    const name = item.dataset.mmPanel;
+    item.addEventListener("mouseenter", () => {
+      if (isMobile()) return;
+      clearTimeout(closeTimer);
+      clearTimeout(openTimer);
+      openTimer = setTimeout(() => showPanel(name), current ? 0 : OPEN_DELAY);
+    });
+
+    const trigger = item.querySelector(".mm_trigger");
+    if (trigger) {
+      trigger.addEventListener("click", (event) => {
+        if (!isMobile()) {
+          event.preventDefault();
+          if (current === name) close();
+          else showPanel(name);
+        }
+      });
+    }
+  });
+
+  nav.addEventListener("mouseleave", () => {
+    if (isMobile()) return;
+    clearTimeout(openTimer);
+    closeTimer = setTimeout(close, CLOSE_DELAY);
+  });
+
+  overlay?.addEventListener("mouseenter", () => {
+    if (isMobile()) return;
+    clearTimeout(closeTimer);
+  });
+
+  burger?.addEventListener("click", () => openMobile("solutions"));
+  backdrop?.addEventListener("click", close);
+  closeBtns.forEach((btn) => btn.addEventListener("click", closeMobile));
+
+  overlay?.addEventListener("click", (event) => {
+    if (isMobile() && event.target === overlay) closeMobile();
+  });
+
+  accordionBtns.forEach((btn) => {
+    btn.addEventListener("click", () => showPanel(btn.dataset.mmTab));
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
-    nav.classList.remove("is-mobile-open");
-    burger?.setAttribute("aria-expanded", "false");
-    setOpen(null);
+    if (nav.classList.contains("is-mobile-open")) closeMobile();
+    else close();
   });
 
   mq.addEventListener("change", () => {
-    nav.classList.remove("is-mobile-open");
-    setOpen(null);
+    closeMobile();
   });
 })();
